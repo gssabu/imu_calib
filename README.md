@@ -15,7 +15,7 @@ The underlying algorithm is a least-squares calibration approach based on and si
 #### Topics
 
 ##### Subscribed Topics
-- `raw_imu` (lino_msgs/Imu) <br>
+- `/linorobot/teensy/imu_raw` (lino_msgs/Imu) <br>
   The raw, uncalibrated IMU measurements
 
 #### Parameters
@@ -32,12 +32,15 @@ Applies the accelerometer calibration parameters computed by the do_calib node. 
 #### Topics
 
 ##### Subscribed Topics
-- `raw_imu` (lino_msgs/Imu) <br>
+- `/linorobot/teensy/imu_raw` (lino_msgs/Imu) <br>
   The raw, uncalibrated IMU measurements
 
 ##### Published Topics
-- `imu/data_raw` (sensor_msgs/Imu) <br>
-  The corrected, calibrated IMU measurements
+- `/linorobot/imu/data_raw` (sensor_msgs/Imu) <br>
+  Assembled, calibrated IMU measurements
+
+- `/linorobot/imu/mag` (sensor_msgs/MagneticField) <br>
+  Assembled, magnetometer readings
 
 #### Parameters
 - `~calib_file` (string, default: "imu_calib.yaml") <br>

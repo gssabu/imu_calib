@@ -68,9 +68,9 @@ ApplyCalib::ApplyCalib() :
   int queue_size;
   nh_private.param<int>("queue_size", queue_size, 5);
 
-  raw_sub_ = nh.subscribe("raw_imu", queue_size, &ApplyCalib::rawImuCallback, this);
-  corrected_pub_ = nh.advertise<sensor_msgs::Imu>("imu/data_raw", queue_size);
-  mag_pub_ = nh.advertise<sensor_msgs::MagneticField>("imu/mag", queue_size);
+  raw_sub_ = nh.subscribe("/linorobot/teensy/imu_raw", queue_size, &ApplyCalib::rawImuCallback, this);
+  corrected_pub_ = nh.advertise<sensor_msgs::Imu>("/linorobot/imu/data_raw", queue_size);
+  mag_pub_ = nh.advertise<sensor_msgs::MagneticField>("/linorobot/imu/mag", queue_size);
 }
 
 void ApplyCalib::rawImuCallback(lino_msgs::Imu::ConstPtr raw)
